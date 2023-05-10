@@ -136,7 +136,7 @@ def fetch_changed_events(refresh_token):
         tasks = []
         page_token = None
         now = datetime.now(timezone.utc)
-        time_min = now
+        time_min = now - timedelta(days=1)
         time_max = now + timedelta(days=40)
 
 
